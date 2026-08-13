@@ -17,9 +17,9 @@ Press 'd' to toggle the nodes on and off.
 ## Timeline
 
 - **February 12, 2022:** Brittni begins work on a new generative color system using Java and Processing.
-- **February 14, 2022:** Brittni begins work on her generative art system: a collection of pseudo-random number functions and generative color factories written in JavaScript with p5.js.
+- **February 13, 2022:** Brittni begins work on her generative art system: a collection of pseudo-random number functions and generative color factories written in JavaScript with p5.js.
 - **February 20, 2022:** Brittni begins work  on the Growing Graphs Processing sketch.
-- **April 2, 2022:** Brittni begins work on the Gradient Graphs algorithm using p5.js and JavaScript.
+- **March 29, 2022:** Brittni begins work on the Gradient Graphs algorithm using p5.js and JavaScript.
 - **May 8, 2022:** Brittni publishes the Gradient Graphs p5.js sketch as a [Generative Token on fx(hash)](https://www.fxhash.xyz/project/gradient-graphs).
 
 ## License
