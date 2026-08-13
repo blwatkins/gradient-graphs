@@ -51,6 +51,7 @@ Press 'd' to toggle the nodes on and off.
 - [ ] New color palettes, and improved palette selection, color generation, and color selection
 - [ ] Algorithm improvements for graph generation and edge detection using spatial partitioning and other techniques
 - [ ] Algorithm improvements for node placement using Poisson Disk Sampling and other techniques
+- [ ] Algorithm improvements for node, edge, and gradient circle rendering
 
 ## License
 
