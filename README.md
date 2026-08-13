@@ -1,6 +1,7 @@
-# Origins: Gradient Graphs
+# Gradient Graphs
 
-The original source code for the Gradient Graphs generative art algorithm, published on May 8, 2022.
+The Gradient Graphs generative art algorithm, written by Brittni Watkins.
+Originally published on May 8, 2022.
 
 ## Description
 
