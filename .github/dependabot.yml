@@ -1,0 +1,30 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    target-branch: "main"
+    commit-message:
+      prefix: "dependabot github-action update"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github actions"
+
+  - package-ecosystem: bundler
+    directory: "/docs"
+    schedule:
+      interval: monthly
+    target-branch: "main"
+    allow:
+      - dependency-type: "direct"
+    commit-message:
+      prefix: "dependabot bundler update"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "ruby"
