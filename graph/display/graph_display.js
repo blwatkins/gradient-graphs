@@ -5,7 +5,7 @@ Creative Commons Attribution-NonCommercial-NoDerivatives
 https://creativecommons.org/licenses/by-nc-nd/4.0/
 */
 
-// Graident Graphs
+// Gradient Graphs
 // Graph Display Class
 // Author: Brittni Watkins
 // Created: March 29, 2022
