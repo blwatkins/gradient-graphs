@@ -1,0 +1,15 @@
+*.DS_Store
+
+# JetBrains IDEs
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Claude Code
+.claude/
+
+# Jekyll
+_site/
+.jekyll-cache/
+.sass-cache/
