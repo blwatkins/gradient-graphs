@@ -1,4 +1,7 @@
-# Gradient Graphs
+---
+title: "Gradient Graphs"
+layout: page
+---
 
 ## About this Project
 
@@ -33,7 +36,7 @@ Press 'd' to toggle the nodes on and off.
 - Began development on March 29, 2022.
 - Published on May 8, 2022.
 
-[Run v1.0 of Gradient Graphs](https://blwatkins.github.io/gradient-graphs/sketch/v1.0/index.html)
+[Run v1.0 of Gradient Graphs](./sketch/v1.0/index.html)
 
 ### v2.0
 
@@ -98,7 +101,3 @@ For additional information about the tools and platforms used to create this pro
 
 - [fx(hash)](https://www.fxhash.xyz/)
 - [fx(hash) Docs - Genart on the Blockchain](https://docs.fxhash.xyz/knowledge-base/quickstart/genart-on-the-blockchain)
-
-----
-
-Copyright &copy; 2022-2026 Brittni Watkins. All rights reserved.

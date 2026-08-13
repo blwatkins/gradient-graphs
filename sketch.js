@@ -1,21 +1,26 @@
 /*
-This code and its output are licensed under the
-Creative Commons Attribution-NonCommercial-NoDerivatives
-4.0 International (CC BY-NC-ND 4.0) License.
-https://creativecommons.org/licenses/by-nc-nd/4.0/
-*/
-
-// Gradient Graphs
-// Sketch Functions
-// Author: Brittni Watkins
-// Created: April 2, 2022
+ * Copyright (c) 2022-2026 Brittni Watkins.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
 
 let graphDisplay;
 let graphType;
 let nodeDispersalType;
 let backgroundType;
 let backgroundColor;
-let isSaved;
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
@@ -27,18 +32,11 @@ function setup() {
     graphDisplay = new GraphDisplay(graph, center, width - (width / 50), height - (height / 50), colorGenerators);
     backgroundType = getRandomBackgroundType();
     backgroundColor = getBackgroundColor(backgroundType);
-    isSaved = false;
-    setFeatures();
 }
 
 function draw() {
     background(backgroundColor);
     graphDisplay.display();
-
-    if (!isSaved) {
-        fxpreview();
-        isSaved = true;
-    }
 }
 
 function keyPressed() {
@@ -147,12 +145,4 @@ function getBackgroundColor(backgroundType) {
     }
 
     return col;
-}
-
-function setFeatures() {
-    window.$fxhashFeatures = {
-        "Background Type": backgroundType,
-        "Graph Type": graphType,
-        "Node Dispersal": nodeDispersalType
-    }
 }
