@@ -21,7 +21,6 @@ let graphType;
 let nodeDispersalType;
 let backgroundType;
 let backgroundColor;
-let isSaved;
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
@@ -33,18 +32,11 @@ function setup() {
     graphDisplay = new GraphDisplay(graph, center, width - (width / 50), height - (height / 50), colorGenerators);
     backgroundType = getRandomBackgroundType();
     backgroundColor = getBackgroundColor(backgroundType);
-    isSaved = false;
-    setFeatures();
 }
 
 function draw() {
     background(backgroundColor);
     graphDisplay.display();
-
-    if (!isSaved) {
-        fxpreview();
-        isSaved = true;
-    }
 }
 
 function keyPressed() {
@@ -153,12 +145,4 @@ function getBackgroundColor(backgroundType) {
     }
 
     return col;
-}
-
-function setFeatures() {
-    window.$fxhashFeatures = {
-        "Background Type": backgroundType,
-        "Graph Type": graphType,
-        "Node Dispersal": nodeDispersalType
-    }
 }
