@@ -43,6 +43,25 @@ Press 'd' to toggle the nodes on and off.
 
 The source code of this project and its outputs are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en).
 
+## Project Status Badges
+
+### [GitHub](https://github.com/blwatkins/gradient-graphs)
+
+![GitHub License](https://badgen.net/github/license/blwatkins/gradient-graphs)
+![GitHub Dependabot](https://badgen.net/github/dependabot/blwatkins/gradient-graphs)
+![GitHub Last Commit](https://badgen.net/github/last-commit/blwatkins/gradient-graphs)
+![GitHub Commits](https://badgen.net/github/commits/blwatkins/gradient-graphs)
+![GitHub Commit Activity](https://img.shields.io/github/commit-activity/y/blwatkins/gradient-graphs)
+![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/blwatkins/gradient-graphs)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/blwatkins/gradient-graphs)
+![GitHub Repo File or Directory Count](https://img.shields.io/github/directory-file-count/blwatkins/gradient-graphs)
+![GitHub Language Count](https://img.shields.io/github/languages/count/blwatkins/gradient-graphs)
+
+### GitHub Actions
+
+![CodeQL](https://github.com/blwatkins/gradient-graphs/actions/workflows/codeql.yml/badge.svg)
+![Deploy GitHub Pages with Jekyll](https://github.com/blwatkins/gradient-graphs/actions/workflows/gh-pages-jekyll.yml/badge.svg)
+
 ## Thank Yous
 
 A huge thank you to all the open source contributors who have made this project possible by creating and maintaining the libraries and tools used in this project, and to the open source community for fostering collaboration and innovation.
