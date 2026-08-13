@@ -22,6 +22,22 @@ Press 'd' to toggle the nodes on and off.
 - **February 20, 2022:** Brittni begins work  on the Growing Graphs Processing sketch.
 - **March 29, 2022:** Brittni begins work on the Gradient Graphs algorithm using p5.js and JavaScript.
 - **May 8, 2022:** Brittni publishes the Gradient Graphs p5.js sketch as a [Generative Token on fx(hash)](https://www.fxhash.xyz/project/gradient-graphs).
+- **August 13, 2026:** Brittni begins work on the Gradient Graphs 2.0 algorithm, which will feature improved aspect ratio and resolution handling and graphs that are able to extend beyond the canvas boundaries.
+
+## Roadmap
+
+### v2.0.0
+
+- [ ] Versioned algorithms published to the web via GitHub Pages deployment
+- [ ] Improved aspect ratio and resolution handling
+- [ ] Graphs that are able to extend beyond the canvas boundaries
+
+### v3.0.0
+
+- [ ] Conversion of project files from static HTML, CSS, and JavaScript to a Node.js project with dependency management and build scripts
+- [ ] Rewrite of full algorithm in TypeScript using the `@blwatkins` generative art utility packages
+- [ ] New color palettes, and improved palette selection, color generation, and color selection
+- [ ] Algorithm improvements for graph generation and edge detection
 
 ## License
 
