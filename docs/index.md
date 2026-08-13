@@ -40,16 +40,16 @@ Press 'd' to toggle the nodes on and off.
 
 ### v2.0
 
-- [ ] Versioned algorithms published to the web via GitHub Pages deployment
+- [x] Versioned algorithms published to the web via GitHub Pages deployment
+- [ ] Conversion of project files from static HTML, CSS, and JavaScript to a Node.js project with dependency management and build scripts
 - [ ] Improved aspect ratio and resolution handling
 - [ ] Graphs that are able to extend beyond the canvas boundaries
-
+- [ ] Initial integration of the `@blwatkins` generative art utility packages
 
 - Began development on August 13, 2026.
 
 ### v3.0
 
-- [ ] Conversion of project files from static HTML, CSS, and JavaScript to a Node.js project with dependency management and build scripts
 - [ ] Rewrite of full algorithm in TypeScript using the `@blwatkins` generative art utility packages
 - [ ] New color palettes, and improved palette selection, color generation, and color selection
 - [ ] Algorithm improvements for graph generation and edge detection using spatial partitioning and other techniques
