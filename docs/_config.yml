@@ -1,0 +1,51 @@
+# Minima theme configuration
+remote_theme: jekyll/minima
+plugins:
+  - jekyll-remote-theme
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-toc
+  - jekyll-gfm-admonitions
+
+# valid social icon names can be found at https://fontawesome.com/search?ic=brands
+
+minima:
+  skin: auto
+  hide_site_feed_link: true
+  show_excerpts: false
+  social_links:
+    - title: "Source Code"
+      icon: git-alt
+      url: "https://github.com/blwatkins/gradient-graphs"
+    - title: "GitHub Pages"
+      icon: square-github
+      url: "https://blwatkins.github.io/"
+    - title: GitHub
+      icon: github
+      url: "https://github.com/blwatkins"
+    - title: YouTube
+      icon: youtube
+      url: "https://www.youtube.com/channel/UCeJ-huUU2AWP0z4-HWr1BXQ"
+    - title: LinkedIn
+      icon: linkedin
+      url: "https://www.linkedin.com/in/brittni-watkins/"
+  nav_pages:
+    - index.md
+
+title: "Gradient Graphs"
+description: "The Gradient Graphs generative art algorithm, written by Brittni Watkins."
+
+sass:
+  quiet_deps: true
+
+exclude:
+  - .ruby-version
+  - Gemfile
+  - Gemfile.lock
+  - vendor
