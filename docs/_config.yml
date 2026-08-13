@@ -5,13 +5,13 @@ plugins:
   - jekyll-github-metadata
   - jekyll-seo-tag
   - jekyll-coffeescript
-  - jekyll-commonmark-ghpages
   - jekyll-relative-links
   - jekyll-optional-front-matter
   - jekyll-default-layout
   - jekyll-titles-from-headings
   - jekyll-toc
   - jekyll-gfm-admonitions
+  - jekyll-feed
 
 # valid social icon names can be found at https://fontawesome.com/search?ic=brands
 
@@ -43,6 +43,7 @@ description: "The Gradient Graphs generative art algorithm, written by Brittni W
 
 sass:
   quiet_deps: true
+  silence_deprecations: ["import"]
 
 exclude:
   - .ruby-version
