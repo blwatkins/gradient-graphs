@@ -41,6 +41,7 @@ Press 'd' to toggle the nodes on and off.
 - [ ] Conversion of project files from static HTML, CSS, and JavaScript to a Node.js project with dependency management and build scripts
 - [ ] Improved aspect ratio and resolution handling
 - [ ] Graphs that are able to extend beyond the canvas boundaries
+- [ ] Rudimentary seamless tiling of graphs across the canvas boundaries
 - [ ] Initial integration of the `@blwatkins` generative art utility packages
 
 - Began development on August 13, 2026.
@@ -52,6 +53,7 @@ Press 'd' to toggle the nodes on and off.
 - [ ] Algorithm improvements for graph generation and edge detection using spatial partitioning and other techniques
 - [ ] Algorithm improvements for node placement using Poisson Disk Sampling and other techniques
 - [ ] Algorithm improvements for node, edge, and gradient circle rendering
+- [ ] Seamless tiling of graphs across the canvas boundaries, incorporating translated nodes and the resulting edges and gradient circles
 
 ## License
 
