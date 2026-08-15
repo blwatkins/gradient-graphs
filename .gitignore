@@ -9,7 +9,15 @@
 # Claude Code
 .claude/
 
+# Node.js and npm
+node_modules/
+
 # Jekyll
 _site/
 .jekyll-cache/
 .sass-cache/
+.bundle/
+vendor/
+
+# Bundling output
+_dist/
