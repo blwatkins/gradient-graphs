@@ -1,0 +1,25 @@
+{
+  "name": "gradient-graphs",
+  "version": "2.0.0",
+  "license": "AGPL-3.0",
+  "private": true,
+  "description": "The Gradient Graphs generative art algorithm, written by Brittni Watkins. Originally published on May 8, 2022.",
+  "author": {
+    "name": "Brittni Watkins",
+    "url": "https://blwatkins.github.io/"
+  },
+  "homepage": "https://blwatkins.github.io/gradient-graphs/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blwatkins/gradient-graphs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blwatkins/gradient-graphs/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": "^22.23.0 || >=24"
+  },
+  "scripts": {
+  }
+}
