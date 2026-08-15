@@ -28,9 +28,14 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
-    entry: './src/sketch.mjs',
+    entry: './src/sketch.ts',
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            },
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
@@ -38,7 +43,7 @@ export default {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.mjs']
+        extensions: ['.ts', '.tsx']
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -71,7 +76,7 @@ export default {
         host: '127.0.0.1',
         port: 8080,
         hot: true,
-        watchFiles: ['./src/**/*.js', './src/**/*.mjs'],
+        watchFiles: ['./src/**/*.ts'],
         liveReload: true,
         open: true,
         webSocketServer: 'ws'

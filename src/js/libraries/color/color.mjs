@@ -16,8 +16,12 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+"use strict";
+
+import { randomInt, randomFloat, randomBoolean } from '../random/random.mjs';
+
 // COLOR
-class Color {
+export class Color {
     constructor(color) {
         this.initColor(color);
     }
@@ -73,7 +77,7 @@ class Color {
 }
 
 // RANGE
-class Range {
+export class Range {
     constructor(low, high) {
         this.low = low;
         this.high = high;
@@ -89,7 +93,7 @@ class Range {
 }
 
 // COLOR GENERATORS
-class ColorGenerator {
+export class ColorGenerator {
     getRandomColor() {
         return color(0);
     }
@@ -114,7 +118,7 @@ class ColorGenerator {
     }
 }
 
-class RGBColorGenerator extends ColorGenerator {
+export class RGBColorGenerator extends ColorGenerator {
     constructor(redRange, greenRange, blueRange) {
         super();
         this.redRange = redRange;
@@ -139,7 +143,7 @@ class RGBColorGenerator extends ColorGenerator {
     }
 }
 
-class HSBColorGenerator extends ColorGenerator {
+export class HSBColorGenerator extends ColorGenerator {
     constructor(lowHueValue, highHueValue) {
         super();
         this.lowHueValue = lowHueValue;
@@ -172,7 +176,7 @@ class HSBColorGenerator extends ColorGenerator {
     }
 }
 
-class ComplementaryColorGenerator extends ColorGenerator {
+export class ComplementaryColorGenerator extends ColorGenerator {
     constructor() {
         super();
         this.baseHue = randomInt(0, 360);
@@ -220,7 +224,7 @@ class ComplementaryColorGenerator extends ColorGenerator {
     }
 }
 
-class TriadicColorGenerator extends ColorGenerator {
+export class TriadicColorGenerator extends ColorGenerator {
     constructor() {
         super();
         this.baseHue = randomInt(0, 360);
@@ -272,7 +276,7 @@ class TriadicColorGenerator extends ColorGenerator {
 }
 
 // RGB COLOR GENERATORS
-class BlackColorGenerator extends RGBColorGenerator {
+export class BlackColorGenerator extends RGBColorGenerator {
     constructor() {
         super(null, null, null);
     }
@@ -288,7 +292,7 @@ class BlackColorGenerator extends RGBColorGenerator {
     }
 }
 
-class BlueColorGenerator extends RGBColorGenerator {
+export class BlueColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(0, 100), new Range(0, 100), new Range(100, 255));
     }
@@ -298,7 +302,7 @@ class BlueColorGenerator extends RGBColorGenerator {
     }
 }
 
-class CyanColorGenerator extends RGBColorGenerator {
+export class CyanColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(0, 100), new Range(100, 255), new Range(100, 255));
     }
@@ -308,7 +312,7 @@ class CyanColorGenerator extends RGBColorGenerator {
     }
 }
 
-class GreenColorGenerator extends RGBColorGenerator {
+export class GreenColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(0, 100), new Range(100, 255), new Range(0, 100));
     }
@@ -318,7 +322,7 @@ class GreenColorGenerator extends RGBColorGenerator {
     }
 }
 
-class MagentaColorGenerator extends RGBColorGenerator {
+export class MagentaColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(100, 255), new Range(0, 100), new Range(100, 255));
     }
@@ -328,7 +332,7 @@ class MagentaColorGenerator extends RGBColorGenerator {
     }
 }
 
-class RandomColorGenerator extends RGBColorGenerator {
+export class RandomColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(0, 255), new Range(0, 255), new Range(0, 255));
     }
@@ -338,7 +342,7 @@ class RandomColorGenerator extends RGBColorGenerator {
     }
 }
 
-class RedColorGenerator extends RGBColorGenerator {
+export class RedColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(100, 255), new Range(0, 100), new Range(0, 100));
     }
@@ -348,7 +352,7 @@ class RedColorGenerator extends RGBColorGenerator {
     }
 }
 
-class WhiteColorGenerator extends RGBColorGenerator {
+export class WhiteColorGenerator extends RGBColorGenerator {
     constructor() {
         super(null, null, null);
     }
@@ -364,7 +368,7 @@ class WhiteColorGenerator extends RGBColorGenerator {
     }
 }
 
-class YellowColorGenerator extends RGBColorGenerator {
+export class YellowColorGenerator extends RGBColorGenerator {
     constructor() {
         super(new Range(100, 255), new Range(100, 255), new Range(0, 100));
     }
@@ -375,7 +379,7 @@ class YellowColorGenerator extends RGBColorGenerator {
 }
 
 // HSB Color Generators
-class BottomColorGenerator extends HSBColorGenerator {
+export class BottomColorGenerator extends HSBColorGenerator {
     constructor() {
         super(0, 180);
     }
@@ -385,7 +389,7 @@ class BottomColorGenerator extends HSBColorGenerator {
     }
 }
 
-class CoolColorGenerator extends HSBColorGenerator {
+export class CoolColorGenerator extends HSBColorGenerator {
     constructor() {
         super(90, 285);
     }
@@ -395,7 +399,7 @@ class CoolColorGenerator extends HSBColorGenerator {
     }
 }
 
-class RainbowColorGenerator extends HSBColorGenerator {
+export class RainbowColorGenerator extends HSBColorGenerator {
     constructor() {
         super(0, 360);
     }
@@ -405,7 +409,7 @@ class RainbowColorGenerator extends HSBColorGenerator {
     }
 }
 
-class TopColorGenerator extends HSBColorGenerator {
+export class TopColorGenerator extends HSBColorGenerator {
     constructor() {
         super(180, 360);
     }
@@ -415,7 +419,7 @@ class TopColorGenerator extends HSBColorGenerator {
     }
 }
 
-class WarmColorGenerator extends HSBColorGenerator {
+export class WarmColorGenerator extends HSBColorGenerator {
     constructor() {
         super(0, 70);
     }
@@ -426,7 +430,7 @@ class WarmColorGenerator extends HSBColorGenerator {
 }
 
 // COLOR GENERATOR FACTORIES
-class ColorGeneratorFactory {
+export class ColorGeneratorFactory {
     getColorGenerator() {
         return new ColorGenerator();
     }
@@ -436,7 +440,7 @@ class ColorGeneratorFactory {
     }
 }
 
-class UniformColorGeneratorFactory extends ColorGeneratorFactory {
+export class UniformColorGeneratorFactory extends ColorGeneratorFactory {
     getColorGenerator() {
         let r = randomInt(0, 16);
         let colorGenerator;
@@ -500,7 +504,7 @@ class UniformColorGeneratorFactory extends ColorGeneratorFactory {
     }
 }
 
-class UniformRGBColorGeneratorFactory extends ColorGeneratorFactory {
+export class UniformRGBColorGeneratorFactory extends ColorGeneratorFactory {
     getColorGenerator() {
         let r = randomInt(0, 9);
         let colorGenerator;
@@ -543,7 +547,7 @@ class UniformRGBColorGeneratorFactory extends ColorGeneratorFactory {
     }
 }
 
-class UniformHSBColorGeneratorFactory extends ColorGeneratorFactory {
+export class UniformHSBColorGeneratorFactory extends ColorGeneratorFactory {
     getColorGenerator() {
         let r = randomInt(0, 5);
         let colorGenerator;

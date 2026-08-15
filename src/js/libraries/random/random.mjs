@@ -16,18 +16,20 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-function randomFloat(min, max) {
+"use strict";
+
+export function randomFloat(min, max) {
     let r = (Math.random() * (max - min)) + min;
     return r;
 }
 
-function randomInt(min, max) {
+export function randomInt(min, max) {
     let r = randomFloat(min, max);
     let rInt = Math.floor(r);
     return rInt;
 }
 
-function randomBoolean() {
+export function randomBoolean() {
     let r = randomInt(0, 2);
     let boolean = true;
 
@@ -38,7 +40,7 @@ function randomBoolean() {
     return boolean;
 }
 
-function randomBooleanChance(chanceOfTrue) {
+export function randomBooleanChance(chanceOfTrue) {
     let r = randomFloat(0, 1);
     let boolean = true;
 

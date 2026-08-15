@@ -16,7 +16,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-class Scale {
+export class Scale {
     constructor(min, max) {
         this.min = min.copy();
         this.max = max.copy();
