@@ -39,22 +39,22 @@ Press 'd' to toggle the nodes on and off.
 
 - [x] Versioned algorithms published to the web via GitHub Pages deployment
 - [ ] Conversion of project files from static HTML, CSS, and JavaScript to a Node.js project with dependency management and build scripts
-- [ ] Rewrite of full algorithm in TypeScript using the `@blwatkins` generative art utility packages
-- [ ] Improved aspect ratio and resolution handling
-- [ ] Graphs that are able to extend beyond the canvas boundaries
-- [ ] Rudimentary seamless tiling of graphs across the canvas boundaries
+- [ ] Rewrite of full algorithm in TypeScript
 - [ ] Initial integration of the `@blwatkins` generative art utility packages
+- [ ] Algorithm improvements for graph generation and edge detection using spatial partitioning and other techniques
+- [ ] Algorithm improvements for node placement using Poisson Disk Sampling and other techniques
+- [ ] Improved aspect ratio and resolution handling
+- [ ] Algorithm improvements for node, edge, and gradient circle rendering
+- [ ] Graphs that are able to extend beyond the canvas boundaries
+- [ ] Seamless tiling of graphs across the canvas boundaries, incorporating translated nodes and the resulting edges and gradient circles
 - [ ] New color palettes, and improved palette selection, color generation, and color selection
+- [ ] Support for multiple aspect ratios and resolutions
+- [ ] Saving output at multiple aspect ratios and resolutions in one click
+- [ ] Saving multiple images into a single zip file in one click
+- [ ] Initial mobile UI and touch support
 
 
 - Began development on August 13, 2026.
-
-### v3.0
-
-- [ ] Algorithm improvements for graph generation and edge detection using spatial partitioning and other techniques
-- [ ] Algorithm improvements for node placement using Poisson Disk Sampling and other techniques
-- [ ] Algorithm improvements for node, edge, and gradient circle rendering
-- [ ] Seamless tiling of graphs across the canvas boundaries, incorporating translated nodes and the resulting edges and gradient circles
 
 ## License
 
