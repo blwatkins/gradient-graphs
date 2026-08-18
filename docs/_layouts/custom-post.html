@@ -49,12 +49,6 @@ layout: base
         {%- else -%}
         {{ content }}
         {%- endif -%}
-
-        {%- if page.ai_disclaimer %}
-        <footer>
-            <p><small>{{ page.ai_disclaimer | escape }}</small></p>
-        </footer>
-        {%- endif %}
     </div>
 
     {% if jekyll.environment == 'production' -%}
