@@ -43,7 +43,7 @@ export default {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.js', '.ts', '.tsx']
     },
     plugins: [
         new HtmlWebpackPlugin({

@@ -16,17 +16,20 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-export class Scale {
-    constructor(min, max) {
-        this.min = min.copy();
-        this.max = max.copy();
-    }
+import p5 from 'p5';
 
-    getMin() {
-        return this.min;
-    }
+import '../assets/css/sketch.css';
 
-    getMax() {
-        return this.max;
-    }
+function sketch(ctx: p5): void {
+    ctx.setup = (): void => {
+        ctx.createCanvas(720, 720);
+    };
+
+    ctx.draw = (): void => {
+        ctx.background(0);
+        ctx.fill(255);
+        ctx.ellipse(ctx.mouseX, ctx.mouseY, 100, 100);
+    };
 }
+
+new p5(sketch);

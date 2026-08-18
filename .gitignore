@@ -6,9 +6,6 @@
 # Visual Studio Code
 .vscode/
 
-# Claude Code
-.claude/
-
 # Node.js and npm
 node_modules/
 
@@ -19,5 +16,6 @@ _site/
 .bundle/
 vendor/
 
-# Bundling output
+# Compiling and bundling output
+_compiled/
 _dist/
