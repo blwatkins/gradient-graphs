@@ -1,6 +1,6 @@
 {
   "name": "gradient-graphs",
-  "version": "2.0.0",
+  "version": "2.0.0-alpha.0",
   "license": "AGPL-3.0",
   "private": true,
   "description": "The Gradient Graphs generative art algorithm, written by Brittni Watkins. Originally published on May 8, 2022.",
