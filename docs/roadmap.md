@@ -33,11 +33,8 @@ It is a live reflection of my current goals for the project, and it is subject t
 - [ ] Algorithm improvements for node placement using Poisson Disk Sampling and other techniques
 - [ ] Graphs that are able to extend beyond the canvas boundaries
 - [ ] Improved aspect ratio and resolution handling
-- [ ] Runtime changes to variation aspect ratio and resolution
-- [ ] Saving output at multiple aspect ratios and resolutions in one click
 - [ ] Saving multiple images into a single zip file in one click
 - [ ] Algorithm improvements for node, edge, and gradient circle rendering
-- [ ] Seamless tiling of graphs across the canvas boundaries, incorporating translated nodes and the resulting edges and gradient circles
 - [ ] Multivariation grid support
 - [ ] Initial integration of the `@blwatkins` generative art utility packages
 - [ ] New color palettes, and improved palette selection, color generation, and color selection
@@ -45,3 +42,6 @@ It is a live reflection of my current goals for the project, and it is subject t
 ## v3.0
 
 - [ ] Initial mobile UI and touch support
+- [ ] Seamless tiling of graphs across the canvas boundaries, incorporating translated nodes and the resulting edges and gradient circles
+- [ ] Runtime changes to variation aspect ratio and resolution with fade animation for edge changes
+- [ ] Saving output at multiple aspect ratios and resolutions in one click
