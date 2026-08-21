@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2026 Brittni Watkins.
+ * Copyright (c) 2026 Brittni Watkins.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License, version 3,
@@ -18,78 +18,33 @@
 
 import p5 from 'p5';
 
-import '../assets/css/sketch.css';
+import { Sketch } from './p5-utils/sketch';
 
-class AspectRatio {
-    // TODO - widthRatio and heightRatio must both be larger than 1
-    // TODO - widthRatio and heightRatio must both be integers
-    #widthRatio: number;
-    #heightRatio: number;
+export class GradientGraphs extends Sketch {
+    #r: number;
+    #g: number;
+    #b: number;
 
-    constructor(widthRatio: number, heightRatio: number) {
-        this.#widthRatio = widthRatio;
-        this.#heightRatio = heightRatio;
+    constructor() {
+        super();
+        this.#r = Math.floor(Math.random() * 255);
+        this.#g = Math.floor(Math.random() * 255);
+        this.#b = Math.floor(Math.random() * 255);
     }
 
-    public get widthRatio(): number {
-        return this.#widthRatio;
-    }
-
-    public get heightRatio(): number {
-        return this.#heightRatio;
-    }
-
-    public getWidth(resolution: number): number {
-        const unit = this.#getUnit(resolution);
-        return Math.floor(unit * this.#widthRatio);
-    }
-
-    public getHeight(resolution: number): number {
-        const unit: number = this.#getUnit(resolution);
-        return Math.floor(unit * this.#heightRatio);
-    }
-
-    #getUnit(resolution: number): number {
-        return (resolution / Math.max(this.#widthRatio, this.#heightRatio));
-    }
-}
-
-
-
-function sketch(ctx: p5): void {
-    const canvasId = 'mainCanvas';
-    const aspectRatio: AspectRatio = new AspectRatio(1, 1);
-
-    ctx.setup = (): void => {
-        const resolution: number = 1920;
-        const renderer: p5.Renderer = ctx.createCanvas(aspectRatio.getWidth(resolution), aspectRatio.getHeight(resolution));
-        ctx.pixelDensity(1);
-        renderer.elt.id = canvasId;
-        decorateCanvas();
-    };
-
-    ctx.draw = (): void => {
-        ctx.background(100);
+    public override renderTo(ctx: p5.Graphics | p5): void {
+        ctx.background(this.#r, this.#g, this.#b);
         ctx.fill(255);
-        ctx.ellipse(ctx.mouseX, ctx.mouseY, 100, 100);
-    };
+        ctx.ellipse(0, 0, 100, 100);
+        ctx.ellipse(ctx.width / 2, 0, 100, 100);
+        ctx.ellipse(ctx.width, 0, 100, 100);
 
-    ctx.windowResized = (): void => {
-        decorateCanvas();
-    }
+        ctx.ellipse(0, ctx.height / 2, 100, 100);
+        ctx.ellipse(ctx.width / 2, ctx.height / 2, 100, 100);
+        ctx.ellipse(ctx.width, ctx.height / 2, 100, 100);
 
-    function decorateCanvas(): void {
-        const canvas = document.getElementById(canvasId);
-        const parent = canvas?.parentElement;
-
-        if (canvas && parent) {
-            canvas.style.width = '';
-            canvas.style.height = '';
-            canvas.style.maxWidth = parent.offsetWidth.toString(10) + 'px';
-            canvas.style.maxHeight = parent.offsetHeight.toString(10) + 'px';
-            canvas.style.aspectRatio = `auto ${aspectRatio.widthRatio} / ${aspectRatio.heightRatio}`;
-        }
+        ctx.ellipse(0, ctx.height, 100, 100);
+        ctx.ellipse(ctx.width / 2, ctx.height, 100, 100);
+        ctx.ellipse(ctx.width, ctx.height, 100, 100);
     }
 }
-
-new p5(sketch);
