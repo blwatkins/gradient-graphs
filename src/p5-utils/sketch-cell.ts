@@ -16,12 +16,12 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import { SketchInstance } from './sketch-instance';
+import { SketchGraphicsPair } from './sketch-graphics-pair';
 
 export class SketchCell {
-    #activeSketch: SketchInstance;
+    #activeSketch: SketchGraphicsPair;
 
-    constructor(sketchGraphics: SketchInstance) {
+    constructor(sketchGraphics: SketchGraphicsPair) {
         this.#activeSketch = sketchGraphics;
     }
 

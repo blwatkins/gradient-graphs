@@ -23,7 +23,7 @@ import { AspectRatio } from '../genart-utils/aspect-ratio';
 import { Sketch } from './sketch';
 import { GraphicsHandler } from './graphics-handler';
 
-export class SketchInstance {
+export class SketchGraphicsPair {
     readonly #sketch: Sketch;
     readonly #graphicsHandler: GraphicsHandler;
 
@@ -39,7 +39,9 @@ export class SketchInstance {
         let targetRatio: number = targetAspectRatio.widthRatio / targetAspectRatio.heightRatio;
         let actualRatio: number = width / height;
 
-        if (targetRatio > actualRatio) {
+        if (targetRatio === actualRatio) {
+            boundsResolution = Math.max(width, height);
+        } else if (targetRatio > actualRatio) {
             boundsResolution = width;
         } else {
             boundsResolution = height;
