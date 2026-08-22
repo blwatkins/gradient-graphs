@@ -25,7 +25,7 @@ export class GraphicsHandler {
     readonly #aspectRatio: AspectRatio;
     readonly #resolution: number;
 
-    constructor(ctx: p5, config: { aspectRatio: AspectRatio, resolution: number }) {
+    constructor(ctx: p5, config: { aspectRatio: AspectRatio; resolution: number; }) {
         this.#aspectRatio = config.aspectRatio;
         this.#resolution = config.resolution;
         this.#graphics = ctx.createGraphics(

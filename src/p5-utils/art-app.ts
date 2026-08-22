@@ -19,5 +19,5 @@
 import p5 from 'p5';
 
 export abstract class ArtApp {
-    public abstract main(ctx: p5): void ;
+    public abstract main(ctx: p5): void;
 }

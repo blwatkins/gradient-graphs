@@ -47,6 +47,20 @@ export class GradientGraphsApp extends ArtApp {
         let sketchBPair1: SketchGraphicsPair;
         let sketchBPair2: SketchGraphicsPair;
 
+        // TODO - Add AspectRatio handling back to decorate Canvas
+        function decorateCanvas(): void {
+            const canvas = document.getElementById(canvasId);
+            const parent = canvas?.parentElement;
+
+            if (canvas && parent) {
+                canvas.style.width = '';
+                canvas.style.height = '';
+                canvas.style.maxWidth = parent.offsetWidth.toString(10) + 'px';
+                canvas.style.maxHeight = parent.offsetHeight.toString(10) + 'px';
+                canvas.style.aspectRatio = `auto ${aspectRatio.widthRatio} / ${aspectRatio.heightRatio}`;
+            }
+        }
+
         ctx.setup = (): void => {
             const resolution: number = 1920;
             const canvas: p5.Renderer = ctx.createCanvas(
@@ -115,20 +129,6 @@ export class GradientGraphsApp extends ArtApp {
 
         ctx.windowResized = (): void => {
             decorateCanvas();
-        }
-
-        // TODO - Add AspectRatio handling back to decorate Canvas
-        function decorateCanvas(): void {
-            const canvas = document.getElementById(canvasId);
-            const parent = canvas?.parentElement;
-
-            if (canvas && parent) {
-                canvas.style.width = '';
-                canvas.style.height = '';
-                canvas.style.maxWidth = parent.offsetWidth.toString(10) + 'px';
-                canvas.style.maxHeight = parent.offsetHeight.toString(10) + 'px';
-                canvas.style.aspectRatio = `auto ${aspectRatio.widthRatio} / ${aspectRatio.heightRatio}`;
-            }
-        }
+        };
     }
 }

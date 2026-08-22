@@ -35,9 +35,9 @@ export class SketchGraphicsPair {
     public draw(ctx: p5.Graphics | p5, x: number, y: number, width: number, height: number): void {
         this.render();
         let boundsResolution: number;
-        let targetAspectRatio: AspectRatio = this.#graphicsHandler.aspectRatio;
-        let targetRatio: number = targetAspectRatio.widthRatio / targetAspectRatio.heightRatio;
-        let actualRatio: number = width / height;
+        const targetAspectRatio: AspectRatio = this.#graphicsHandler.aspectRatio;
+        const targetRatio: number = targetAspectRatio.widthRatio / targetAspectRatio.heightRatio;
+        const actualRatio: number = width / height;
 
         if (targetRatio === actualRatio) {
             boundsResolution = Math.max(width, height);
@@ -47,8 +47,8 @@ export class SketchGraphicsPair {
             boundsResolution = height;
         }
 
-        let w: number = this.#graphicsHandler.aspectRatio.getWidth(boundsResolution);
-        let h: number = this.#graphicsHandler.aspectRatio.getHeight(boundsResolution);
+        const w: number = this.#graphicsHandler.aspectRatio.getWidth(boundsResolution);
+        const h: number = this.#graphicsHandler.aspectRatio.getHeight(boundsResolution);
         ctx.image(this.#graphicsHandler.graphics, x, y, w, h);
     }
 

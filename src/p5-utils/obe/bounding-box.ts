@@ -52,6 +52,6 @@ export class BoundingBox {
             y: this.getY(ctx),
             width: this.getWidth(ctx),
             height: this.getHeight(ctx)
-        }
+        };
     }
 }
