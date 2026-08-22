@@ -16,7 +16,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import {AspectRatio} from "./aspect-ratio";
+import { AspectRatio } from './aspect-ratio';
 
 // TODO - define schema and builder
 export interface ContextHandlerConfig {

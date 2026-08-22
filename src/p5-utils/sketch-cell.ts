@@ -16,10 +16,11 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+import p5 from 'p5';
+
+import { DrawableGraphics } from './drawable-graphics';
+import { P5ContextHandler } from './p5-context-handler';
 import { SketchGraphics } from './sketch-graphics';
-import {DrawableGraphics} from "./drawable-graphics";
-import {P5ContextHandler} from "./p5-context-handler";
-import p5 from "p5";
 
 export class SketchCell implements DrawableGraphics {
     #sketchGraphics: SketchGraphics;

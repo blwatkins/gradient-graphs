@@ -34,7 +34,7 @@ export class GradientGraphs extends Sketch {
     }
 
     public override renderTo(target: P5ContextHandler | p5.Graphics | p5): void {
-        let ctx: p5.Graphics | p5 = P5ContextHandler.getCtx(target);
+        const ctx: p5.Graphics | p5 = P5ContextHandler.getCtx(target);
         const baseStroke: number = P5ContextHandler.getStrokeMultiplier(target);
 
         ctx.background(this.#r, this.#g, this.#b);

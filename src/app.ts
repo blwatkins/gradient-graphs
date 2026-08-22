@@ -216,7 +216,7 @@ export class GradientGraphsApp extends ArtApp {
                             ctx
                         )
                     )
-                ),
+                )
             ]);
 
             console.log(sketchPair1, sketchPair2, sketchBPair1, sketchBPair2, sketchBGroup1);

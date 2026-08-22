@@ -16,11 +16,13 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import { SketchCell } from './sketch-cell';
-import {DrawableGraphics} from "./drawable-graphics";
-import {P5ContextHandler} from "./p5-context-handler";
-import p5 from "p5";
+import p5 from 'p5';
+
 import { MathUtility } from '@blwatkins/utils';
+
+import { DrawableGraphics } from './drawable-graphics';
+import { P5ContextHandler } from './p5-context-handler';
+import { SketchCell } from './sketch-cell';
 
 export class SketchGrid implements DrawableGraphics {
     #columns: number;

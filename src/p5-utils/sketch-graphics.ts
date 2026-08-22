@@ -16,12 +16,14 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+import p5 from 'p5';
+
+import { AspectRatio } from '../genart-utils/aspect-ratio';
+
+import { DrawableGraphics } from './drawable-graphics';
 import { GraphicsHandler } from './graphics-handler';
-import {P5ContextHandler} from "./p5-context-handler";
-import p5 from "p5";
-import { AspectRatio } from "../genart-utils/aspect-ratio";
-import { Sketch } from "./sketch";
-import {DrawableGraphics} from "./drawable-graphics";
+import { P5ContextHandler } from './p5-context-handler';
+import { Sketch } from './sketch';
 
 export class SketchGraphics implements DrawableGraphics {
     readonly #sketch: Sketch;
