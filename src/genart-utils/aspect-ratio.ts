@@ -19,10 +19,12 @@
 export class AspectRatio {
     // TODO - widthRatio and heightRatio must both be larger than 1
     // TODO - widthRatio and heightRatio must both be integers
-    #widthRatio: number;
-    #heightRatio: number;
+    readonly #widthRatio: number;
+    readonly #heightRatio: number;
 
+    // TODO - config?
     constructor(widthRatio: number, heightRatio: number) {
+        // TODO - verify values/schema
         this.#widthRatio = widthRatio;
         this.#heightRatio = heightRatio;
     }
@@ -36,7 +38,7 @@ export class AspectRatio {
     }
 
     public getWidth(resolution: number): number {
-        const unit = this.#getUnit(resolution);
+        const unit: number = this.#getUnit(resolution);
         return Math.floor(unit * this.#widthRatio);
     }
 

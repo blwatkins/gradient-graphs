@@ -19,11 +19,12 @@
 import p5 from 'p5';
 
 import { Sketch } from './p5-utils/sketch';
+import { P5ContextHandler } from './p5-utils/p5-context-handler';
 
 export class GradientGraphs extends Sketch {
-    #r: number;
-    #g: number;
-    #b: number;
+    readonly #r: number;
+    readonly #g: number;
+    readonly #b: number;
 
     constructor() {
         super();
@@ -32,9 +33,15 @@ export class GradientGraphs extends Sketch {
         this.#b = Math.floor(Math.random() * 255);
     }
 
-    public override renderTo(ctx: p5.Graphics | p5): void {
+    public override renderTo(target: P5ContextHandler | p5.Graphics | p5): void {
+        let ctx: p5.Graphics | p5 = P5ContextHandler.getCtx(target);
+        const baseStroke: number = P5ContextHandler.getStrokeMultiplier(target);
+
         ctx.background(this.#r, this.#g, this.#b);
+
         ctx.fill(255);
+        ctx.strokeWeight(baseStroke * 5);
+
         ctx.ellipse(0, 0, 100, 100);
         ctx.ellipse(ctx.width / 2, 0, 100, 100);
         ctx.ellipse(ctx.width, 0, 100, 100);

@@ -16,16 +16,19 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import { SketchGraphicsPair } from './sketch-graphics-pair';
+import { SketchGraphics } from './sketch-graphics';
+import {DrawableGraphics} from "./drawable-graphics";
+import {P5ContextHandler} from "./p5-context-handler";
+import p5 from "p5";
 
-export class SketchCell {
-    #activeSketch: SketchGraphicsPair;
+export class SketchCell implements DrawableGraphics {
+    #sketchGraphics: SketchGraphics;
 
-    constructor(sketchGraphics: SketchGraphicsPair) {
-        this.#activeSketch = sketchGraphics;
+    constructor(sketchGraphics: SketchGraphics) {
+        this.#sketchGraphics = sketchGraphics;
     }
 
-    render(): void {
-        this.#activeSketch.render();
+    draw(target: P5ContextHandler | p5 | p5.Graphics, x: number, y: number, width: number, height: number): void {
+        this.#sketchGraphics.draw(target, x, y, width, height);
     }
 }

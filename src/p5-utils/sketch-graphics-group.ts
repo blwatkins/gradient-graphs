@@ -16,12 +16,25 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import { Sketch } from './sketch';
 import { GraphicsHandler } from './graphics-handler';
+import { Sketch } from './sketch';
 import { SketchGraphics } from './sketch-graphics';
 
-export class SketchGraphicsPair extends SketchGraphics {
-    public constructor(sketch: Sketch, handler: GraphicsHandler) {
+export class SketchGraphicsGroup extends SketchGraphics {
+    readonly #graphicsHandlers: Map<string, GraphicsHandler> = new Map<string, GraphicsHandler>();
+
+    public constructor(sketch: Sketch, handler: GraphicsHandler, handlerName: string = 'default') {
         super(sketch, handler);
+        this.#graphicsHandlers.set(handlerName, handler);
+    }
+
+    public setActiveHandler(handlerName: string): void {
+        this.activeHandler = this.#graphicsHandlers.get(handlerName) ?? this.activeHandler;
+    }
+
+    // TODO - validate name - single line trimmed string
+    // TODO - can existing keys be overwritten?
+    public addHandler(handlerName: string, handler: GraphicsHandler): void {
+        this.#graphicsHandlers.set(handlerName, handler);
     }
 }

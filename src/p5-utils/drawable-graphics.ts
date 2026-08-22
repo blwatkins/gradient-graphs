@@ -18,23 +18,8 @@
 
 import p5 from 'p5';
 
-import { ContextHandlerConfig } from '../genart-utils/context-handler';
-
 import { P5ContextHandler } from './p5-context-handler';
 
-export class GraphicsHandler extends P5ContextHandler {
-    readonly #graphics: p5.Graphics;
-
-    constructor(config: ContextHandlerConfig, ctx: p5) {
-        super(config);
-        this.#graphics = ctx.createGraphics(
-            this.aspectRatio.getWidth(this.resolution),
-            this.aspectRatio.getHeight(this.resolution)
-        );
-        this.ctx = this.#graphics;
-    }
-
-    get graphics(): p5.Graphics {
-        return this.#graphics;
-    }
+export interface DrawableGraphics {
+    draw(target: P5ContextHandler | p5 | p5.Graphics, x: number, y: number, width: number, height: number): void;
 }

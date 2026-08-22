@@ -32,6 +32,7 @@
     "validate": "npm run lint:all && npm run build:check"
   },
   "dependencies": {
+    "@blwatkins/utils": "^0.1.0-alpha.2",
     "p5": "^2.3.2"
   },
   "devDependencies": {

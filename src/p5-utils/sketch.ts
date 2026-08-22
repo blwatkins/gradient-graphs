@@ -18,6 +18,8 @@
 
 import p5 from 'p5';
 
+import { P5ContextHandler } from './p5-context-handler';
+
 /**
  * Developer Notes:
  * A Sketch is the core of a generative art algorithm.
@@ -25,5 +27,5 @@ import p5 from 'p5';
  * Sketch must stay separate from sketch instance and graphics for aspect ratio agnostic rendering
  */
 export abstract class Sketch {
-    public abstract renderTo(ctx: p5.Graphics | p5): void;
+    public abstract renderTo(target: P5ContextHandler | p5.Graphics | p5): void;
 }
