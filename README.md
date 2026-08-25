@@ -79,3 +79,7 @@ Thank you for giving me the tools, resources, opportunities, support, and inspir
 
 An extra thank you to [The Processing Foundation](https://processingfoundation.org/) and all the developers and contributors who have made [Processing](https://processing.org/) and [p5.js](https://p5js.org/) what they are today.
 This project would not exist without you.
+
+----
+
+Copyright &copy; 2022-2026 Brittni Watkins. All rights reserved.
