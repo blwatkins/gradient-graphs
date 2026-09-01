@@ -4,7 +4,7 @@ layout: custom-post
 author:
   - Brittni Watkins
 date: 2026-08-18
-modified_date: 2026-08-18
+modified_date: 2026-08-31
 toc: true
 read_time: false
 description: "Roadmap for the Gradient Graphs algorithmic art project."
@@ -19,8 +19,7 @@ It is a live reflection of my current goals for the project, and it is subject t
 
 - Began development on March 29, 2022.
 - Published on May 8, 2022.
-
-[Run v1.0 of Gradient Graphs](./sketch/v1.0/index.html)
+- [Run v1.0 of Gradient Graphs](./sketch/v1.0/index.html)
 
 ## v2.0
 
