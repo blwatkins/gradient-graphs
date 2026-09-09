@@ -21,7 +21,7 @@ import { StringUtility } from '@blwatkins/utils';
 import { GraphicsHandler } from './graphics-handler';
 import { Sketch } from './sketch';
 import { SketchGraphics } from './sketch-graphics';
-import {CanvasIDHandler} from "./canvas-id-handler";
+import { CanvasIDHandler } from './canvas-id-handler';
 
 export class SketchGraphicsGroup extends SketchGraphics {
     readonly #graphicsHandlers: Map<string, GraphicsHandler> = new Map<string, GraphicsHandler>();
