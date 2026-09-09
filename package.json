@@ -32,23 +32,23 @@
     "validate": "npm run lint:all && npm run build:check"
   },
   "dependencies": {
-    "@blwatkins/utils": "^0.1.0-alpha.2",
-    "p5": "^2.3.2"
+    "@blwatkins/utils": "^0.1.0-alpha.3",
+    "p5": "^2.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "css-loader": "^7.1.4",
-    "eslint": "^10.8.1",
+    "css-loader": "^7.1.5",
+    "eslint": "^10.10.0",
     "eslint-plugin-es-x": "^10.0.0",
-    "globals": "^17.11.0",
+    "globals": "^17.12.0",
     "html-webpack-plugin": "^5.6.8",
     "mini-css-extract-plugin": "^2.10.2",
     "ts-loader": "^9.6.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.67.0",
-    "webpack": "^5.109.2",
-    "webpack-cli": "^7.2.2",
+    "typescript-eslint": "^8.70.0",
+    "webpack": "^5.110.3",
+    "webpack-cli": "^7.2.3",
     "webpack-dev-server": "^6.0.0"
   }
 }
