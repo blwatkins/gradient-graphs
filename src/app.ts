@@ -43,6 +43,7 @@ import { SketchCell } from './p5-utils/sketch-cell';
 
 // TODO - Up Next - Parallel Canvas Save
 // TODO - Up Next - Multiple Canvas Save to Zip file using JSZip
+// TODO - Describe with sketch traits and information
 
 export class GradientGraphsApp extends ArtApp {
     public override main(ctx: p5): void {
@@ -251,11 +252,21 @@ export class GradientGraphsApp extends ArtApp {
                 sketchBGroup1.setActiveHandler('widescreen');
             } else if (ctx.keyIsDown('d')) {
                 sketchBGroup1.setActiveHandler('default');
+            } else if (ctx.keyIsDown('1')) {
+                imageSaveTest();
             }
         };
 
         ctx.windowResized = (): void => {
             decorateCanvas();
         };
+
+        function imageSaveTest(): void {
+            try {
+                sketchPair1.downloadImage();
+            } catch (e) {
+                console.error(e);
+            }
+        }
     }
 }

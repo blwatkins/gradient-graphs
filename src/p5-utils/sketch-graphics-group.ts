@@ -35,10 +35,16 @@ export class SketchGraphicsGroup extends SketchGraphics {
         this.activeHandler = this.#graphicsHandlers.get(handlerName) ?? this.activeHandler;
     }
 
-    // TODO - can existing keys be overwritten?
+    // TODO - should existing keys be overwritten?
     public addHandler(handlerName: string, handler: GraphicsHandler): void {
         StringUtility.assertSingleLineTrimmedString(handlerName);
         this.#graphicsHandlers.set(handlerName, handler);
         handler.id = CanvasIDHandler.getId(this.sketch, handler);
     }
+
+    // TODO - downloadImage - make abstract method in SketchGraphics
+
+    // TODO - downloadImageFrom(name)
+
+    // TODO - downloadAllImages - get blobs in parallel (Promise.all), then output in zip download using JSZip
 }
