@@ -18,6 +18,8 @@
 
 import p5 from 'p5';
 
+import { StringUtility } from '@blwatkins/utils';
+
 import { P5ContextHandler } from './p5-context-handler';
 
 /**
@@ -27,5 +29,16 @@ import { P5ContextHandler } from './p5-context-handler';
  * Sketch must stay separate from sketch instance and graphics for aspect ratio agnostic rendering
  */
 export abstract class Sketch {
+    readonly #name: string;
+
+    protected constructor(name: string) {
+        StringUtility.assertSingleLineTrimmedString(name);
+        this.#name = name.replaceAll(' ', '-');
+    }
+
     public abstract renderTo(target: P5ContextHandler | p5.Graphics | p5): void;
+
+    public get name(): string {
+        return this.#name;
+    }
 }

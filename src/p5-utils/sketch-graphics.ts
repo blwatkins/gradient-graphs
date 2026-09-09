@@ -24,6 +24,7 @@ import { DrawableGraphics } from './drawable-graphics';
 import { GraphicsHandler } from './graphics-handler';
 import { P5ContextHandler } from './p5-context-handler';
 import { Sketch } from './sketch';
+import { CanvasIDHandler } from './canvas-id-handler';
 
 export class SketchGraphics implements DrawableGraphics {
     readonly #sketch: Sketch;
@@ -32,6 +33,7 @@ export class SketchGraphics implements DrawableGraphics {
     constructor(sketch: Sketch, handler: GraphicsHandler) {
         this.#sketch = sketch;
         this.#activeHandler = handler;
+        this.#activeHandler.id = CanvasIDHandler.getId(this.#sketch, this.#activeHandler);
     }
 
     public get activeHandler(): GraphicsHandler {

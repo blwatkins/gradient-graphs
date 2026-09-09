@@ -16,9 +16,12 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+import { StringUtility } from '@blwatkins/utils';
+
 import { GraphicsHandler } from './graphics-handler';
 import { Sketch } from './sketch';
 import { SketchGraphics } from './sketch-graphics';
+import {CanvasIDHandler} from "./canvas-id-handler";
 
 export class SketchGraphicsGroup extends SketchGraphics {
     readonly #graphicsHandlers: Map<string, GraphicsHandler> = new Map<string, GraphicsHandler>();
@@ -32,9 +35,10 @@ export class SketchGraphicsGroup extends SketchGraphics {
         this.activeHandler = this.#graphicsHandlers.get(handlerName) ?? this.activeHandler;
     }
 
-    // TODO - validate name - single line trimmed string
     // TODO - can existing keys be overwritten?
     public addHandler(handlerName: string, handler: GraphicsHandler): void {
+        StringUtility.assertSingleLineTrimmedString(handlerName);
         this.#graphicsHandlers.set(handlerName, handler);
+        handler.id = CanvasIDHandler.getId(this.sketch, handler);
     }
 }

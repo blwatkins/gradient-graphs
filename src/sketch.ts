@@ -27,7 +27,7 @@ export class GradientGraphs extends Sketch {
     readonly #b: number;
 
     constructor() {
-        super();
+        super('Gradient-Graphs');
         this.#r = Math.floor(Math.random() * 255);
         this.#g = Math.floor(Math.random() * 255);
         this.#b = Math.floor(Math.random() * 255);

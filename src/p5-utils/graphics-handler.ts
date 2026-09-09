@@ -37,4 +37,12 @@ export class GraphicsHandler extends P5ContextHandler {
     get graphics(): p5.Graphics {
         return this.#graphics;
     }
+
+    get id(): string {
+        return this.#graphics.elt.id;
+    }
+
+    set id(id: string) {
+        this.#graphics.elt.id = id;
+    }
 }
