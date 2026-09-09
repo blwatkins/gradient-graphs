@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@blwatkins/utils": "^0.1.0-alpha.3",
-    "p5": "^2.3.3"
+    "p5": "2.3.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
