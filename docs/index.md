@@ -10,9 +10,9 @@ Originally published on May 8, 2022.
 
 ### Description
 
-A Gabriel Graph is a special kind of graph in graph theory where an edge can only be formed between two nodes if the circle formed by those two nodes contains no other nodes in the graph.  A Random Geometric Graph is a graph where an edge can only be formed between two nodes if they are less than a certain distance away from each other.  In this project, I have created random Gabriel Graphs and Random Geometric Graphs, where the graphs have a random number of nodes and each node has a random position.  Each node is assigned a color, and each edge is colored according to the two nodes at each end, with a gradient line and a gradient circle which slowly transitions from one color to the other.  Users can interact with the project to remove the nodes, edge lines, or edge circles, choosing how they would like the graph to be displayed.
+A Gabriel Graph is a special kind of graph where an edge can only be formed between two nodes if the circle tangent to those two nodes contains no other nodes in the graph.  A Random Geometric Graph is a graph where an edge can only be formed between two nodes if they are less than a set distance away from each other.  In this project, I have created random Gabriel Graphs and Random Geometric Graphs, where each graph has a random number of nodes and each node has a random position.  Each node is assigned a color, and each edge is colored according to the two nodes it connects, with a gradient line and a gradient circle that slowly transition from one color to the other.  Users can interact with the project to remove the nodes, edge lines, or edge circles, choosing how they would like the graph to be displayed.
 
-Made with p5.js
+Made with [p5.js](https://p5js.org/).
 
 ### Instructions
 
@@ -30,7 +30,7 @@ Made with p5.js
 - **February 13, 2022:** Brittni begins work on her generative art system: a collection of pseudo-random number functions and generative color factories written in JavaScript with p5.js.
 - **February 20, 2022:** Brittni begins work  on the Growing Graphs Processing sketch.
 - **March 29, 2022:** Brittni begins work on the Gradient Graphs algorithm using p5.js and JavaScript.
-- **May 8, 2022:** Brittni publishes the Gradient Graphs p5.js sketch as a [Generative Token on fx(hash)](https://www.fxhash.xyz/project/gradient-graphs).
+- **May 8, 2022:** Brittni publishes the Gradient Graphs p5.js sketch as a generative token on fx(hash).
 - **August 13, 2026:** Brittni begins work on version 2.0 of the Gradient Graphs algorithm.
 
 ### Roadmap
