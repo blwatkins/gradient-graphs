@@ -41,6 +41,9 @@ import { SketchCell } from './p5-utils/sketch-cell';
 // SketchContainers can run the sketch with graphics OR p5Ctx
 // Sketch is the algorithm
 
+// TODO - Up Next - Parallel Canvas Save
+// TODO - Up Next - Multiple Canvas Save to Zip file using JSZip
+
 export class GradientGraphsApp extends ArtApp {
     public override main(ctx: p5): void {
         const canvasId = 'gradient-graphs-app';
