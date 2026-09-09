@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2026 Brittni Watkins.
+ * Copyright (c) 2026 Brittni Watkins.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License, version 3,
@@ -18,18 +18,40 @@
 
 import p5 from 'p5';
 
-import '../assets/css/sketch.css';
+import { Sketch } from './p5-utils/sketch';
+import { P5ContextHandler } from './p5-utils/p5-context-handler';
 
-function sketch(ctx: p5): void {
-    ctx.setup = (): void => {
-        ctx.createCanvas(720, 720);
-    };
+export class GradientGraphs extends Sketch {
+    readonly #r: number;
+    readonly #g: number;
+    readonly #b: number;
 
-    ctx.draw = (): void => {
-        ctx.background(0);
+    constructor() {
+        super('Gradient-Graphs');
+        this.#r = Math.floor(Math.random() * 255);
+        this.#g = Math.floor(Math.random() * 255);
+        this.#b = Math.floor(Math.random() * 255);
+    }
+
+    public override renderTo(target: P5ContextHandler | p5.Graphics | p5): void {
+        const ctx: p5.Graphics | p5 = P5ContextHandler.getCtx(target);
+        const baseStroke: number = P5ContextHandler.getStrokeMultiplier(target);
+
+        ctx.background(this.#r, this.#g, this.#b);
+
         ctx.fill(255);
-        ctx.ellipse(ctx.mouseX, ctx.mouseY, 100, 100);
-    };
-}
+        ctx.strokeWeight(baseStroke * 5);
 
-new p5(sketch);
+        ctx.ellipse(0, 0, 100, 100);
+        ctx.ellipse(ctx.width / 2, 0, 100, 100);
+        ctx.ellipse(ctx.width, 0, 100, 100);
+
+        ctx.ellipse(0, ctx.height / 2, 100, 100);
+        ctx.ellipse(ctx.width / 2, ctx.height / 2, 100, 100);
+        ctx.ellipse(ctx.width, ctx.height / 2, 100, 100);
+
+        ctx.ellipse(0, ctx.height, 100, 100);
+        ctx.ellipse(ctx.width / 2, ctx.height, 100, 100);
+        ctx.ellipse(ctx.width, ctx.height, 100, 100);
+    }
+}
