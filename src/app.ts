@@ -31,17 +31,6 @@ import { SketchCell } from './p5-utils/sketch-cell';
 // - determinism can come from overall app-level seed, or sketch-level seed.
 // - use sketch level seed with app-level seed fallback
 
-// TODO - Current Goal Architecture
-// Main
-// App ~ p5Ctx
-// AppScreen ~ Graphics
-// SketchGrid ~ Graphics
-// SketchCell ~ Graphics
-// Any can run a Sketch
-// SketchContainers can run the sketch with graphics OR p5Ctx
-// Sketch is the algorithm
-
-// TODO - Up Next - Parallel Canvas Save
 // TODO - Up Next - Multiple Canvas Save to Zip file using JSZip
 // TODO - Describe with sketch traits and information
 
