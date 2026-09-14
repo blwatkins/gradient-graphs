@@ -31,6 +31,7 @@ import { SketchCell } from './p5-utils/sketch-cell';
 // - determinism can come from overall app-level seed, or sketch-level seed.
 // - use sketch level seed with app-level seed fallback
 
+// TODO - download indicator
 // TODO - Click event handler on sketch cells/sketch pair/sketch group
 
 // TODO - Up Next - Multiple Canvas Save to Zip file using JSZip
