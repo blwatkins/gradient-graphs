@@ -25,6 +25,7 @@ import { P5ContextHandler } from './p5-context-handler';
 export class GraphicsHandler extends P5ContextHandler {
     readonly #graphics: p5.Graphics;
 
+    // TODO - p5 context argument should be first
     constructor(config: ContextHandlerConfig, ctx: p5) {
         super(config);
         this.#graphics = ctx.createGraphics(

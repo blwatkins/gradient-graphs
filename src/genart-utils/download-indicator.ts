@@ -16,7 +16,15 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
+export enum DownloadState {
+    Downloading = 'downloading',
+    Success = 'success',
+    Failure = 'failure',
+}
+
 export abstract class DownloadIndicator {
+    #state: DownloadState;
+
     abstract downloadStart(): void;
     abstract downloadComplete(): void;
     abstract downloadFailure(): void;
