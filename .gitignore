@@ -16,6 +16,9 @@ _site/
 .bundle/
 vendor/
 
+# Scratch files
+_scratch/
+
 # Compiling and bundling output
 _compiled/
 _dist/
