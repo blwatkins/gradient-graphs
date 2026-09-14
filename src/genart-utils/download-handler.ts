@@ -44,18 +44,13 @@ export class DownloadHandler {
 
         DownloadHandler.canvasToBlob(canvas)
             .then((blob: Blob): void => {
-                console.log('Start wait 2');
-                new Promise<void>(resolve => {
-                    setTimeout(resolve, 2500);
-                }).then(() => {
-                    const url: string = URL.createObjectURL(blob);
-                    const link: HTMLAnchorElement = document.createElement('a');
-                    link.download = `${canvas.id}.png`;
-                    link.href = url;
-                    link.click();
-                    URL.revokeObjectURL(url);
-                    downloadIndicator?.downloadComplete();
-                });
+                const url: string = URL.createObjectURL(blob);
+                const link: HTMLAnchorElement = document.createElement('a');
+                link.download = `${canvas.id}.png`;
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+                downloadIndicator?.downloadComplete();
             })
             .catch((error): void => {
                 console.error(error);
@@ -67,11 +62,6 @@ export class DownloadHandler {
     }
 
     public static async canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
-        console.log('Start wait 1');
-        await new Promise(resolve => {
-            setTimeout(resolve, 2500);
-        });
-
         return new Promise<Blob>((resolve, reject) => {
             if (!HTMLElementUtility.isHTMLCanvasElement(canvas)) {
                 reject('Input must be an HTMLCanvasElement.');
@@ -79,13 +69,12 @@ export class DownloadHandler {
 
             canvas.toBlob((blob: Blob | null): void => {
                 if (blob) {
-                    console.log('BLOB!')
                     resolve(blob);
                 } else {
                     reject('Canvas blob is null.');
                 }
             });
-        })
+        });
     }
 
     static #assertDownloadTimeout(): void {

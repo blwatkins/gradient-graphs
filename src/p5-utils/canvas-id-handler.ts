@@ -19,6 +19,8 @@
 import { GraphicsHandler } from './graphics-handler';
 import { Sketch } from './sketch';
 
+// TODO - Add sketch variation indicator to canvas id
+
 export class CanvasIDHandler {
     static readonly #sketchCanvasCount: Map<string, number> = new Map<string, number>();
 

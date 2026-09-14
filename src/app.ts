@@ -26,6 +26,7 @@ import { AspectRatio } from './genart-utils/aspect-ratio';
 import { SketchGraphicsGroup } from './p5-utils/sketch-graphics-group';
 import { SketchGrid } from './p5-utils/sketch-grid';
 import { SketchCell } from './p5-utils/sketch-cell';
+import {AppDownloadIndicator} from "./download-indicator";
 
 // TODO - future - Individual sketches should have the option to accept their own deterministic seed
 // - determinism can come from overall app-level seed, or sketch-level seed.
@@ -53,6 +54,8 @@ export class GradientGraphsApp extends ArtApp {
 
         let sketchGrid: SketchGrid;
 
+        let downloadIndicator: AppDownloadIndicator;
+
         function decorateCanvas(): void {
             const canvas = document.getElementById(canvasId);
             const parent = canvas?.parentElement;
@@ -75,6 +78,8 @@ export class GradientGraphsApp extends ArtApp {
             canvas.id(canvasId);
             ctx.pixelDensity(1);
             decorateCanvas();
+
+            downloadIndicator = new AppDownloadIndicator(ctx);
 
             sketch = new GradientGraphs();
             sketchPair1 = new SketchGraphicsPair(
@@ -221,6 +226,7 @@ export class GradientGraphsApp extends ArtApp {
         ctx.draw = (): void => {
             ctx.background(255);
             sketchGrid.draw(ctx, 0, 0, ctx.width, ctx.height, 0.9, 'center');
+            downloadIndicator.draw(ctx, ctx.width - 100, ctx.height - 100, 100, 100);
             // ctx.imageMode(ctx.CENTER);
             // const width1: number = ctx.width / 3.0;
             // const offsetX: number = width1 / 2.0;
@@ -255,7 +261,7 @@ export class GradientGraphsApp extends ArtApp {
 
         function imageSaveTest(): void {
             try {
-                sketchPair1.downloadImage();
+                sketchPair1.downloadImage(downloadIndicator);
             } catch (e) {
                 console.error(e);
             }

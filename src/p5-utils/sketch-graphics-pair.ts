@@ -23,17 +23,18 @@ import { DownloadHandler } from '../genart-utils/download-handler';
 import { Sketch } from './sketch';
 import { GraphicsHandler } from './graphics-handler';
 import { SketchGraphics } from './sketch-graphics';
+import {DownloadIndicator} from "../genart-utils/download-indicator";
 
 export class SketchGraphicsPair extends SketchGraphics {
     public constructor(sketch: Sketch, handler: GraphicsHandler) {
         super(sketch, handler);
     }
 
-    public downloadImage(): void {
+    public downloadImage(downloadIndictor?: DownloadIndicator): void {
         this.render();
         const canvasID: string = this.activeHandler.id;
         const canvas: HTMLElement | null = document.getElementById(canvasID);
         HTMLElementUtility.assertHTMLCanvasElement(canvas);
-        DownloadHandler.downloadImage(canvas);
+        DownloadHandler.downloadImage(canvas, downloadIndictor);
     }
 }
