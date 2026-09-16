@@ -20,13 +20,13 @@ import p5 from 'p5';
 
 import { AspectRatio } from '../genart-utils/aspect-ratio';
 
-import { DrawableGraphics } from './drawable-graphics';
+import { Drawable } from './drawable';
 import { GraphicsHandler } from './graphics-handler';
 import { P5ContextHandler } from './p5-context-handler';
 import { Sketch } from './sketch';
 import { CanvasIDHandler } from './canvas-id-handler';
 
-export class SketchGraphics implements DrawableGraphics {
+export class SketchGraphics implements Drawable {
     readonly #sketch: Sketch;
     #activeHandler: GraphicsHandler;
 

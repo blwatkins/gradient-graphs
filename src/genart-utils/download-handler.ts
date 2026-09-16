@@ -25,7 +25,7 @@ import { DownloadIndicator } from './download-indicator';
 // TODO - remove forced waits after testing download indicator
 
 export class DownloadHandler {
-    static #downloadTimeoutMillis: number = 30_000;
+    static #downloadTimeoutMillis: number = 1_000;
     static #lastDownloadMillis: number = 0;
 
     public static get downloadTimeoutMillis(): number {
@@ -40,7 +40,7 @@ export class DownloadHandler {
     public static downloadImage(canvas: HTMLCanvasElement, downloadIndicator?: DownloadIndicator): void {
         DownloadHandler.#assertDownloadTimeout();
         HTMLElementUtility.assertHTMLCanvasElement(canvas);
-        downloadIndicator?.downloadStart();
+        downloadIndicator?.start();
 
         DownloadHandler.canvasToBlob(canvas)
             .then((blob: Blob): void => {
@@ -50,11 +50,11 @@ export class DownloadHandler {
                 link.href = url;
                 link.click();
                 URL.revokeObjectURL(url);
-                downloadIndicator?.downloadComplete();
+                downloadIndicator?.success();
             })
             .catch((error): void => {
                 console.error(error);
-                downloadIndicator?.downloadFailure();
+                downloadIndicator?.failure();
             })
             .finally(() => {
                 DownloadHandler.#lastDownloadMillis = Date.now();
@@ -62,6 +62,10 @@ export class DownloadHandler {
     }
 
     public static async canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+        await new Promise((resolve) => {
+            setTimeout(resolve, 5_000);
+        });
+
         return new Promise<Blob>((resolve, reject) => {
             if (!HTMLElementUtility.isHTMLCanvasElement(canvas)) {
                 reject('Input must be an HTMLCanvasElement.');

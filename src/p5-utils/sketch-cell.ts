@@ -18,11 +18,11 @@
 
 import p5 from 'p5';
 
-import { DrawableGraphics } from './drawable-graphics';
+import { Drawable } from './drawable';
 import { P5ContextHandler } from './p5-context-handler';
 import { SketchGraphics } from './sketch-graphics';
 
-export class SketchCell implements DrawableGraphics {
+export class SketchCell implements Drawable {
     #sketchGraphics: SketchGraphics;
 
     constructor(sketchGraphics: SketchGraphics) {

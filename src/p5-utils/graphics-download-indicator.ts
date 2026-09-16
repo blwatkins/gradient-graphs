@@ -17,48 +17,60 @@
  */
 
 import { DownloadIndicator } from '../genart-utils/download-indicator';
-import { DrawableGraphics } from './drawable-graphics';
-import {GraphicsHandler} from "./graphics-handler";
+import { Drawable } from './drawable';
+import { GraphicsHandler } from "./graphics-handler";
 import p5 from "p5";
-import {ContextHandlerConfig} from "../genart-utils/context-handler";
+import { ContextHandlerConfig } from "../genart-utils/context-handler";
+import { Renderable } from "./renderable";
+import { P5ContextHandler } from "./p5-context-handler";
 
-export abstract class GraphicsDownloadIndicator extends DownloadIndicator implements DrawableGraphics {
-    #graphicsHandler: GraphicsHandler;
-    #isActive: boolean;
-    #isDownloading: boolean;
-    #downloadSuccess: boolean;
-    #activeTimeoutMillis: number = 5_000;
+export abstract class GraphicsDownloadIndicator extends DownloadIndicator implements Drawable, Renderable {
+    readonly #graphicsHandler: GraphicsHandler;
+    #displayTimeoutMillis: number = 5_000;
 
-    constructor(config: ContextHandlerConfig, ctx: p5) {
+    protected constructor(config: ContextHandlerConfig, ctx: p5) {
         super();
         this.#graphicsHandler = new GraphicsHandler(config, ctx);
-        this.#isActive = false;
-        this.#isDownloading = false;
-        this.#downloadSuccess = false;
     }
 
-    downloadStart(): void {
-        this.#isActive = true;
-        this.#isDownloading = true;
+    public abstract renderTo(target: P5ContextHandler | p5.Graphics | p5): void;
+
+    public draw(target: P5ContextHandler | p5 | p5.Graphics, x: number, y: number, width: number, height: number): void {
+        if (!this.isIdle()) {
+            this.render();
+            P5ContextHandler.getCtx(target).image(this.#graphicsHandler.graphics, x, y, width, height);
+        }
     }
 
-    downloadComplete(): void {
-        this.#isDownloading = false;
-        this.#downloadSuccess = true;
-        this.#activeTimeout();
+    protected set displayTimeoutMillis(millis: number) {
+        this.#displayTimeoutMillis = millis;
     }
 
-    downloadFailure(): void {
-        this.#isDownloading = false;
-        this.#downloadSuccess = false;
-        this.#activeTimeout();
+    protected override downloadStart(): void {
+        /* Empty */
     }
 
-    #activeTimeout(): void {
+    protected override downloadSuccess(): void {
+        this.#displayTimeout();
+    }
+
+    protected override downloadFailure(): void {
+        this.#displayTimeout();
+    }
+
+    protected override downloadIdle(): void {
+        /* Empty */
+    }
+
+    protected render(): void {
+        this.renderTo(this.#graphicsHandler);
+    }
+
+    #displayTimeout(): void {
         new Promise<void>(resolve => {
-            setTimeout(resolve, this.#activeTimeoutMillis);
+            setTimeout(resolve, this.#displayTimeoutMillis);
         }).then((): void => {
-            this.#isActive = false;
+            this.idle();
         });
     }
 }

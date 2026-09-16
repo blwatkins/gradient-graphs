@@ -16,68 +16,71 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import { DownloadIndicator } from './genart-utils/download-indicator';
-import {DrawableGraphics} from "./p5-utils/drawable-graphics";
-import {P5ContextHandler} from "./p5-utils/p5-context-handler";
 import p5 from "p5";
-import { GraphicsHandler } from "./p5-utils/graphics-handler";
-import {AspectRatio} from "./genart-utils/aspect-ratio";
 
-// TODO - async timer for setting isActive to false after download completes or fails
+import { AspectRatio } from "./genart-utils/aspect-ratio";
+import { GraphicsDownloadIndicator } from "./p5-utils/graphics-download-indicator";
+import {P5ContextHandler} from "./p5-utils/p5-context-handler";
+import {MathUtility} from "@blwatkins/utils";
 
-export class AppDownloadIndicator extends DownloadIndicator implements DrawableGraphics {
-    #graphicsHandler: GraphicsHandler;
-    #isActive: boolean;
-    #isDownloading: boolean;
-    #downloadSuccess: boolean;
-    #activeTimeoutMillis: number = 5_000;
+export class AppDownloadIndicator extends GraphicsDownloadIndicator {
+    #offsetRadius;
+    #theta;
+    #d;
+    #deltaTheta;
+    #deltaD;
+    #deltaOffset;
 
     constructor(ctx: p5) {
-        super();
-        this.#graphicsHandler = new GraphicsHandler({ aspectRatio: new AspectRatio(1, 1), resolution: 100 }, ctx);
-        this.#isActive = false;
-        this.#isDownloading = false;
-        this.#downloadSuccess = false;
+        super({aspectRatio: new AspectRatio(1, 1), resolution: 100}, ctx);
+        this.displayTimeoutMillis = 10_000;
+        this.#offsetRadius = 25;
+        this.#deltaTheta = 0.025;
+        this.#deltaD = 0.5;
+        this.#theta = 0;
+        this.#d = 25;
+        this.#deltaOffset = -0.5;
+        console.log(this.#deltaD);
+        console.log(this.#deltaOffset);
     }
 
-    draw(target: P5ContextHandler | p5 | p5.Graphics, x: number, y: number, width: number, height: number): void {
-        if (this.#isActive) {
-            if (this.#isDownloading) {
-                this.#graphicsHandler.graphics.background(0);
-            } else {
-                if (this.#downloadSuccess) {
-                    this.#graphicsHandler.graphics.background(0, 255, 0);
-                } else {
-                    this.#graphicsHandler.graphics.background(255, 0, 0);
-                }
+    public override renderTo(target: P5ContextHandler | p5.Graphics | p5): void {
+        const ctx: p5.Graphics | p5 = P5ContextHandler.getCtx(target);
+        const maxOffset: number = (Math.min(ctx.width, ctx.height) / 2.0) - (this.#d / 2.0);
+
+
+        if (this.isDownloading()) {
+            this.#offsetRadius = maxOffset;
+            const x: number = (ctx.width / 2.0) + (this.#offsetRadius * Math.cos(this.#theta));
+            const y: number = (ctx.height / 2.0) +  (this.#offsetRadius * Math.sin(this.#theta));
+            this.#theta += this.#deltaTheta;
+
+            ctx.background(200);
+            ctx.fill(255);
+            ctx.noStroke();
+            ctx.circle(x, y, this.#d);
+        } else if (this.hasSuccess()) {
+            if (this.#offsetRadius > 0) {
+                this.#offsetRadius = MathUtility.constrain(this.#offsetRadius + this.#deltaOffset, 0, maxOffset);
             }
 
-            P5ContextHandler.getCtx(target).image(this.#graphicsHandler.graphics, x, y, width, height);
+            const x: number = (ctx.width / 2.0) + (this.#offsetRadius * Math.cos(this.#theta));
+            const y: number = (ctx.height / 2.0) +  (this.#offsetRadius * Math.sin(this.#theta));
+
+            ctx.background(255);
+            ctx.fill(0, 200, 0);
+            ctx.circle(x, y, this.#d);
+        } else if (this.hasFailure()) {
+            if (this.#offsetRadius > 0) {
+                this.#offsetRadius = MathUtility.constrain(this.#offsetRadius + this.#deltaOffset, 0, maxOffset);
+            }
+
+            const x: number = (ctx.width / 2.0) + (this.#offsetRadius * Math.cos(this.#theta));
+            const y: number = (ctx.height / 2.0) +  (this.#offsetRadius * Math.sin(this.#theta));
+
+            ctx.background(0);
+            ctx.fill(200, 0, 0);
+            ctx.circle(x, y, this.#d);
         }
-    }
-
-    downloadStart(): void {
-        this.#isActive = true;
-        this.#isDownloading = true;
-    }
-
-    downloadComplete(): void {
-        this.#isDownloading = false;
-        this.#downloadSuccess = true;
-        this.#activeTimeout();
-    }
-
-    downloadFailure(): void {
-        this.#isDownloading = false;
-        this.#downloadSuccess = false;
-        this.#activeTimeout();
-    }
-
-    #activeTimeout(): void {
-        new Promise<void>(resolve => {
-            setTimeout(resolve, this.#activeTimeoutMillis);
-        }).then((): void => {
-            this.#isActive = false;
-        });
     }
 }

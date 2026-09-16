@@ -20,12 +20,57 @@ export enum DownloadState {
     Downloading = 'downloading',
     Success = 'success',
     Failure = 'failure',
+    Idle = 'idle',
 }
 
 export abstract class DownloadIndicator {
-    #state: DownloadState;
+    #state: DownloadState = DownloadState.Idle;
 
-    abstract downloadStart(): void;
-    abstract downloadComplete(): void;
-    abstract downloadFailure(): void;
+    public get state(): DownloadState {
+        return this.#state;
+    }
+
+    public start():  void {
+        this.#state = DownloadState.Downloading;
+        this.downloadStart();
+    }
+
+    public success(): void {
+        this.#state = DownloadState.Success;
+        this.downloadSuccess();
+    }
+
+    public failure(): void {
+        this.#state = DownloadState.Failure;
+        this.downloadFailure();
+    }
+
+    public idle(): void {
+        this.#state = DownloadState.Idle;
+        this.downloadIdle();
+    }
+
+    protected abstract downloadStart(): void;
+
+    protected abstract downloadSuccess(): void;
+
+    protected abstract downloadFailure(): void;
+
+    protected abstract downloadIdle(): void;
+
+    protected isDownloading(): boolean {
+        return this.#state === DownloadState.Downloading;
+    }
+
+    protected hasSuccess(): boolean {
+        return this.#state === DownloadState.Success;
+    }
+
+    protected hasFailure(): boolean {
+        return this.#state === DownloadState.Failure;
+    }
+
+    protected isIdle(): boolean {
+        return this.#state === DownloadState.Idle;
+    }
 }

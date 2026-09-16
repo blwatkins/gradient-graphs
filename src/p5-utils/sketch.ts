@@ -21,6 +21,7 @@ import p5 from 'p5';
 import { StringUtility } from '@blwatkins/utils';
 
 import { P5ContextHandler } from './p5-context-handler';
+import { Renderable } from './renderable';
 
 /**
  * Developer Notes:
@@ -28,7 +29,7 @@ import { P5ContextHandler } from './p5-context-handler';
  * It should be renderable to a p5.Graphics object and drawable to a p5.js Canvas (p5).
  * Sketch must stay separate from sketch instance and graphics for aspect ratio agnostic rendering
  */
-export abstract class Sketch {
+export abstract class Sketch implements Renderable {
     readonly #name: string;
 
     protected constructor(name: string) {

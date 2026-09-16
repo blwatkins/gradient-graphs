@@ -20,11 +20,11 @@ import p5 from 'p5';
 
 import { MathUtility } from '@blwatkins/utils';
 
-import { DrawableGraphics } from './drawable-graphics';
+import { Drawable } from './drawable';
 import { P5ContextHandler } from './p5-context-handler';
 import { SketchCell } from './sketch-cell';
 
-export class SketchGrid implements DrawableGraphics {
+export class SketchGrid implements Drawable {
     #columns: number;
     #rows: number;
     #sketchCells: SketchCell[];
